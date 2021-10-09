@@ -2,6 +2,7 @@
 using Hearthstone_Deck_Tracker.Plugins;
 
 using System.Windows.Controls;
+using Hearthstone_Deck_Tracker.API;
 
 namespace bgs_never_lucky
 {
@@ -15,14 +16,19 @@ namespace bgs_never_lucky
         protected MenuItem MainMenuItem { get; set; }
 
         public MenuItem MenuItem => MainMenuItem;
+        
+        private readonly HdtEventManager _eventManager = new HdtEventManager();
 
         public void OnLoad()
         {
+            GameEvents.OnGameStart.Add(() => _eventManager.OnGameStart());
+            GameEvents.OnGameEnd.Add(() => _eventManager.OnGameEnd());
+            GameEvents.OnTurnStart.Add(player => _eventManager.OnTurnStart());
+            
             MainMenuItem = new MenuItem()
             {
                 Header = Name
             };
-
             MainMenuItem.Click += (sender, args) => { };
         }
 
