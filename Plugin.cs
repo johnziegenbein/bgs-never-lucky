@@ -21,6 +21,7 @@ namespace bgs_never_lucky
 
         public void OnLoad()
         {
+            GameEvents.OnEntityWillTakeDamage.Add(preDamageInfo => _eventManager.OnEntityWillTakeDamage(preDamageInfo));
             GameEvents.OnGameStart.Add(() => _eventManager.OnGameStart());
             GameEvents.OnGameEnd.Add(() => _eventManager.OnGameEnd());
             GameEvents.OnTurnStart.Add(player => _eventManager.OnTurnStart());
