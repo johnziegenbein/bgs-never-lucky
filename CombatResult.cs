@@ -1,5 +1,4 @@
 ﻿using System;
-using Hearthstone_Deck_Tracker.API;
 
 namespace bgs_never_lucky
 {

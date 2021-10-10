@@ -1,5 +1,4 @@
-﻿using System;
-using Hearthstone_Deck_Tracker.Controls.Overlay;
+﻿using Hearthstone_Deck_Tracker.Controls.Overlay;
 
 namespace bgs_never_lucky
 {
