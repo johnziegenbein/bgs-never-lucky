@@ -14,19 +14,19 @@ namespace bgs_never_lucky
         
         public void OnGameStart()
         {
-            Log.Info("Never lucky: OnGameStart called");
+            Log.Debug("Never lucky: OnGameStart called");
             if(!Core.Game.IsBattlegroundsMatch) return;
         }
 
         public void OnGameEnd()
         {
-            Log.Error("Never lucky: OnGameEnd called");
+            Log.Debug("Never lucky: OnGameEnd called");
             if(!Core.Game.IsBattlegroundsMatch) return;
         }
         
         public void OnEntityWillTakeDamage(PredamageInfo preDamageInfo)
         {
-            Log.Info("Never lucky: OnEntityWillTakeDamage called");
+            Log.Debug("Never lucky: OnEntityWillTakeDamage called");
             if(!Core.Game.IsBattlegroundsMatch) return;
             if(!EntityHelper.IsHero(preDamageInfo.Entity)) return;
 
@@ -37,7 +37,7 @@ namespace bgs_never_lucky
                 GetCombatWinner(preDamageInfo) 
             );
             
-            Log.Info($"Never lucky: PreDamageInfo: value:{preDamageInfo.Value}, entityId:{preDamageInfo.Entity.Id}");
+            Log.Debug($"Never lucky: PreDamageInfo: value:{preDamageInfo.Value}, entityId:{preDamageInfo.Entity.Id}");
         }
 
         /**
@@ -50,7 +50,7 @@ namespace bgs_never_lucky
 
         public void OnTurnStart()
         {
-            Log.Info("Never lucky: OnTurnStart called");
+            Log.Debug("Never lucky: OnTurnStart called");
             if(!Core.Game.IsBattlegroundsMatch) return;
             var turnNumber = Core.Game.GetTurnNumber();
             if(turnNumber == 1) return;
